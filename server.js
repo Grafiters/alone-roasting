@@ -2,10 +2,13 @@ var express = require('express');
 var app = express();
 const MainRoute = require('./route/index');
 const bodyParser = require('body-parser');
+const path = require('path');
 
 
-app.get('/', function (req, res) {
-  res.send('Hello your fucking sh*t !');
+app.get('/', (req, res) => {
+  res.sendFile('index.html', {
+    root: path.join(__dirname,'./')
+  })
 });
 
 app
